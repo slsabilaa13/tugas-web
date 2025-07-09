@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lavpiisces - Toko Kue Online</title>
+    <style>
+        /* CSS untuk tema biru dan cream */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background-color: #1E90FF;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #FDF5E6;
+        }
+
+        nav a {
+            margin: 10px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #1E90FF;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            background-color: #1E90FF;
+            color: white;
+        }
+
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #1E90FF;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Gaya untuk Form Registrasi */
+        form {
+            background-color: #FFF;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        input[type="text"], input[type="password"], input[type="email"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #1E90FF;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #104E8B;
+        }
+
+        .menu-list {
+            list-style-type: none;
+        }
+
+        .menu-list li {
+            margin: 10px 0;
+        }
+    </style>
+    <script>
+        function showSection(sectionId) {
+            var sections = document.querySelectorAll('section');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+    </script>
+</head>
+<body onload="showSection('beranda')">
+
+<header>
+    <h1>Selamat Datang di Lavpiisces - Toko Kue Online</h1>
+</header>
+
+<nav>
+    <a href="#" onclick="showSection('beranda')">Beranda</a>
+    <a href="#" onclick="showSection('menu')">Menu</a>
+    <a href="#" onclick="showSection('pemesanan')">Pemesanan</a>
+    <a href="#" onclick="showSection('kontak')">Kontak Kami</a>
+</nav>
+
+<!-- Beranda -->
+<section id="beranda">
+    <h2>Registrasi Pelanggan</h2>
+    <form action="proses_registrasi.php" method="POST">
+        <label for="nama">Nama:</label><br>
+        <input type="text" id="nama" name="nama" required><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br>
+
+        <input type="submit" value="Daftar">
+    </form>
+</section>
+
+<!-- Menu -->
+<section id="menu" style="display:none;">
+    <h2>Daftar Menu</h2>
+    <ul class="menu-list">
+        <li>Brownies Coklat - Rp. 50.000</li>
+        <li>Cheesecake - Rp. 70.000</li>
+        <li>Tiramisu - Rp. 85.000</li>
+        <li>Red Velvet Cake - Rp. 60.000</li>
+    </ul>
+</section>
+
+<!-- Pemesanan -->
+<section id="pemesanan" style="display:none;">
+    <h2>Form Pemesanan</h2>
+    <form action="proses_pemesanan.php" method="POST">
+        <label for="nama">Nama:</label><br>
+        <input type="text" id="nama" name="nama" required><br>
+
+        <label for="kue">Pilih Kue:</label><br>
+        <select id="kue" name="kue">
+            <option value="brownies">Brownies Coklat</option>
+            <option value="cheesecake">Cheesecake</option>
+            <option value="tiramisu">Tiramisu</option>
+            <option value="redvelvet">Red Velvet Cake</option>
+        </select><br>
+
+        <label for="alamat">Alamat Pengiriman:</label><br>
+        <textarea id="alamat" name="alamat" required></textarea><br>
+
+        <input type="submit" value="Pesan">
+    </form>
+</section>
+
+<!-- Kontak Kami -->
+<section id="kontak" style="display:none;">
+    <h2>Hubungi Kami</h2>
+    <p>Email: lavpiisces@gmail.com</p>
+    <p>Telepon: 0812-3456-7890</p>
+    <p>Alamat: Jalan Kue Manis No. 123, Jakarta</p>
+</section>
+
+<footer>
+    <p>&copy; 2024 Lavpiisces. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

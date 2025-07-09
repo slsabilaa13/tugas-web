@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lavpiisces - Toko Kue Online</title>
+    <style>
+        /* CSS untuk tema biru dan cream */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            background-image: url('background kue.jpg');
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+
+        header::after {
+            content: '';
+            background-color: rgba(30, 144, 255, 0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+        }
+
+        header h1 {
+            position: relative;
+            color: white;
+            padding: 40px;
+            text-align: center;
+            z-index: 3;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #FDF5E6;
+        }
+
+        nav a {
+            margin: 10px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #1E90FF;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            background-color: #1E90FF;
+            color: white;
+        }
+
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #1E90FF;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .menu-list {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .menu-list li {
+            margin: 20px;
+            text-align: center;
+        }
+
+        .menu-list img {
+            width: 200px;
+            height: 150px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        form {
+            background-color: #FFF;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        input[type="text"], input[type="password"], input[type="email"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #1E90FF;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #104E8B;
+        }
+
+        .contact-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function showSection(sectionId) {
+            var sections = document.querySelectorAll('section');
+            sections.forEach(function (section) {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        function processRegistration(event) {
+            event.preventDefault();
+            alert("Registrasi berhasil!");
+            showSection('beranda');
+        }
+
+        function orderCake(cake) {
+            showSection('pemesanan');
+            document.getElementById('kue').value = cake;
+        }
+    </script>
+</head>
+<body onload="showSection('registrasi')">
+
+<header>
+    <h1>Lavpiisces Cake</h1>
+</header>
+
+<nav>
+    <a href="#" onclick="showSection('beranda')">Beranda</a>
+    <a href="#" onclick="showSection('menu')">Menu</a>
+    <a href="#" onclick="showSection('pemesanan')">Pemesanan</a>
+    <a href="#" onclick="showSection('kontak')">Kontak Kami</a>
+</nav>
+
+<section id="registrasi">
+    <h2>Form Registrasi</h2>
+    <form id="registrationForm" onsubmit="processRegistration(event)">
+        <label for="nama">Nama:</label><br>
+        <input type="text" id="nama" name="nama" required><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br>
+
+        <input type="submit" value="Daftar">
+    </form>
+</section>
+
+<section id="beranda" style="display:none;">
+    <h2>Selamat Datang di Lavpiisces Cake</h2>
+    <p>Toko kue online terbaik yang menyediakan berbagai macam kue lezat.</p>
+    <p>Temukan berbagai macam kue lezat yang siap untuk dipesan!</p>
+    <img src="kue1.jfif" width="150x100">
+    <img src="kue 2.jfif" width="125x100">
+</section>
+
+<section id="menu" style="display:none;">
+    <h2>Daftar Menu</h2>
+    <ul class="menu-list">
+        <li>
+            <img src="almond.jfif" alt="Brownies Coklat">
+            <p>Brownies Coklat - Rp. 40.000</p>
+            <button onclick="orderCake('brownies')">Beli Sekarang</button>
+        </li>
+        <li>
+            <img src="cake.jfif" alt="Cheesecake">
+            <p>Cheesecake - Rp. 45.000</p>
+            <button onclick="orderCake('cheesecake')">Beli Sekarang</button>
+        </li>
+        <li>
+            <img src="tiramisu.jfif" alt="Tiramisu">
+            <p>Tiramisu - Rp. 35.000</p>
+            <button onclick="orderCake('tiramisu')">Beli Sekarang</button>
+        </li>
+        <li>
+            <img src="redvelvet.jfif" alt="Red Velvet Cake">
+            <p>Red Velvet Cake - Rp. 40.000</p>
+            <button onclick="orderCake('redvelvet')">Beli Sekarang</button>
+        </li>
+        <li>
+            <img src="coklat lava.jpg" alt="Coklat Lava">
+            <p>Coklat Lava - Rp. 45.000</p>
+            <button onclick="orderCake('coklatlava')">Beli Sekarang</button>
+        </li>
+    </ul>
+</section>
+
+<section id="pemesanan" style="display:none;">
+    <h2>Form Pemesanan</h2>
+    <form action="proses_pemesanan.php" method="POST">
+        <label for="nama">Nama:</label><br>
+        <input type="text" id="nama" name="nama" required><br>
+
+        <label for="kue">Pilih Kue:</label><br>
+        <select id="kue" name="kue">
+            <option value="brownies">Brownies Coklat</option>
+            <option value="cheesecake">Cheesecake</option>
+            <option value="tiramisu">Tiramisu</option>
+            <option value="redvelvet">Red Velvet Cake</option>
+            <option value="coklatlava">Coklat Lava</option>
+        </select><br>
+
+        <label for="alamat">Alamat Pengiriman:</label><br>
+        <textarea id="alamat" name="alamat" required></textarea><br>
+
+        <input type="submit" value="Pesan">
+    </form>
+</section>
+
+<section id="kontak" style="display:none;">
+    <h2>Hubungi Kami</h2>
+    <img src="foto.jfif" alt="Foto Kontak" class="contact-photo">
+    <p>Email: salsabila13@gmail.com</p>
+    <p>Telepon: 0821-7694-2004</p>
+    <p>Alamat: Sumatera Barat, Padang</p>
+</section>
+
+</body>
+</html>
